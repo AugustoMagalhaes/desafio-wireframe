@@ -15,9 +15,14 @@ function onInputChange() {
 }
 
 function generateBox() {
-  const colunaValue = Number(inputColumn.value) || 1;
-  const linhaValue = Number(inputRow.value) || 1;
+  let colunaValue = Number(inputColumn.value) || 1;
+  let linhaValue = Number(inputRow.value) || 1;
   boxSection.innerHTML = '';
+  if (linhaValue > 100 || colunaValue > 100) {
+    window.alert('Favor digitar um número menor ou igual a 100.');
+    [inputColumn.value, colunaValue] = [1, 1];
+    [inputRow.value, linhaValue] = [1, 1];
+  }
 
   for (let row = 0; row < linhaValue; row += 1) {
     const newRow = document.createElement('div');
