@@ -3,6 +3,17 @@ const inputColuna = document.querySelector('#colunas');
 const inputLinha = document.querySelector('#linhas');
 const sendBtn = document.querySelector('.btn');
 
+function onInputChange() {
+  const allValues = [Number(inputLinha.value), Number(inputColuna.value)];
+  const checkDisabled = allValues.some((el) => !Number(el) || Number(el) !== parseInt(el));
+  sendBtn.disabled = checkDisabled;
+  if (checkDisabled) {
+    sendBtn.className.includes('disabled') === false && sendBtn.classList.add('disabled');
+  } else {
+    sendBtn.classList.remove('disabled');
+  }
+}
+
 function generateBox() {
   const colunaValue = Number(inputColuna.value) || 1;
   const linhaValue = Number(inputLinha.value) || 1;
@@ -18,10 +29,15 @@ function generateBox() {
     }
     boxSection.appendChild(newRow)
   }
-  console.log(typeof colunaValue, colunaValue)
+  inputColuna.value = '';
+  inputLinha.value = '';
 }
 
 window.onload = function() {
   sendBtn.addEventListener('click', generateBox);
+  inputColuna.addEventListener('change', onInputChange);
+  inputColuna.addEventListener('keyup', onInputChange);
+  inputLinha.addEventListener('change', onInputChange);
+  inputLinha.addEventListener('keyup', onInputChange);
   generateBox();
 }
