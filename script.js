@@ -33,11 +33,19 @@ function generateBox() {
   inputLinha.value = '';
 }
 
+function generateBoxKeyboard({key}) {
+  if (key === 'Enter' && sendBtn.disabled === false) {
+    generateBox();
+  }
+}
+
 window.onload = function() {
   sendBtn.addEventListener('click', generateBox);
   inputColuna.addEventListener('change', onInputChange);
   inputColuna.addEventListener('keyup', onInputChange);
+  inputColuna.addEventListener('keypress', generateBoxKeyboard)
   inputLinha.addEventListener('change', onInputChange);
   inputLinha.addEventListener('keyup', onInputChange);
+  inputLinha.addEventListener('keypress', generateBoxKeyboard);
   generateBox();
 }
