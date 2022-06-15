@@ -1,6 +1,6 @@
 const boxSection = document.querySelector('.box');
-const inputColumn = document.querySelector('#colunas');
-const inputRow = document.querySelector('#linhas');
+const inputColumn = document.getElementById('columns');
+const inputRow = document.getElementById('rows');
 const sendBtn = document.querySelector('.btn');
 
 function onInputChange() {
