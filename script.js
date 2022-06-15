@@ -1,10 +1,10 @@
 const boxSection = document.querySelector('.box');
-const inputColuna = document.querySelector('#colunas');
-const inputLinha = document.querySelector('#linhas');
+const inputColumn = document.querySelector('#colunas');
+const inputRow = document.querySelector('#linhas');
 const sendBtn = document.querySelector('.btn');
 
 function onInputChange() {
-  const allValues = [Number(inputLinha.value), Number(inputColuna.value)];
+  const allValues = [Number(inputRow.value), Number(inputColumn.value)];
   const checkDisabled = allValues.some((el) => !Number(el) || Number(el) !== parseInt(el));
   sendBtn.disabled = checkDisabled;
   if (checkDisabled) {
@@ -15,8 +15,8 @@ function onInputChange() {
 }
 
 function generateBox() {
-  const colunaValue = Number(inputColuna.value) || 1;
-  const linhaValue = Number(inputLinha.value) || 1;
+  const colunaValue = Number(inputColumn.value) || 1;
+  const linhaValue = Number(inputRow.value) || 1;
   boxSection.innerHTML = '';
 
   for (let row = 0; row < linhaValue; row += 1) {
@@ -29,8 +29,8 @@ function generateBox() {
     }
     boxSection.appendChild(newRow)
   }
-  inputColuna.value = '';
-  inputLinha.value = '';
+  inputColumn.value = '';
+  inputRow.value = '';
 }
 
 function generateBoxKeyboard({key}) {
@@ -41,11 +41,11 @@ function generateBoxKeyboard({key}) {
 
 window.onload = function() {
   sendBtn.addEventListener('click', generateBox);
-  inputColuna.addEventListener('change', onInputChange);
-  inputColuna.addEventListener('keyup', onInputChange);
-  inputColuna.addEventListener('keypress', generateBoxKeyboard)
-  inputLinha.addEventListener('change', onInputChange);
-  inputLinha.addEventListener('keyup', onInputChange);
-  inputLinha.addEventListener('keypress', generateBoxKeyboard);
+  inputColumn.addEventListener('change', onInputChange);
+  inputColumn.addEventListener('keyup', onInputChange);
+  inputColumn.addEventListener('keypress', generateBoxKeyboard)
+  inputRow.addEventListener('change', onInputChange);
+  inputRow.addEventListener('keyup', onInputChange);
+  inputRow.addEventListener('keypress', generateBoxKeyboard);
   generateBox();
 }
