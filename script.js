@@ -37,6 +37,7 @@ function generateBox() {
   inputColumn.value = '';
   inputRow.value = '';
   sendBtn.disabled = true;
+  sendBtn.classList.add('disabled');
 }
 
 function generateBoxKeyboard({key}) {
