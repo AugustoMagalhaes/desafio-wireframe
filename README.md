@@ -11,7 +11,7 @@ O desafio wireframe é resultado de um desafio técnico realizado em junho de 20
 ### 🚀 Como rodar localmente:
 
 Clone o repositório:
-`git clone git@github.com:AugustoMagalhaes/javascript-dom-03-pixels-art.git`
+`git clone git@github.com:AugustoMagalhaes/desafio-wireframe.git`
 
 Para acessar a pasta digite:
 `cd desafio-wireframe`
